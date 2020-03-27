@@ -1,0 +1,4 @@
+-
+  username: input[placeholder="用户名"]
+  findStratety: cssSelector
+  operate: sendkeys
