@@ -31,6 +31,7 @@ public class test {
         }
         finally {
             // 关闭页面，退出进程
+            base.screenShot(webDriver);
             webDriver.close();
             webDriver.quit();
         }

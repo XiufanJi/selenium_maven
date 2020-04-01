@@ -1,4 +1,15 @@
 -
-  username: input[placeholder="用户名"]
+  locator: input[placeholder="用户名"]
   findStratety: cssSelector
   operate: sendkeys
+  returnNum: single
+-
+  locator: input[placeholder="密码"]
+  findStratety: cssSelector
+  operate: sendkeys
+  returnNum: single
+-
+  locator: .login-button
+  findStrategy: cssSelector
+  operate: click
+  returnNum: single

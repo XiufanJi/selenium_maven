@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="unipaySystem login" duration-ms="16690" started-at="2020-03-27T14:58:51 CST" finished-at="2020-03-27T14:59:07 CST">
+  <suite name="Default Suite" duration-ms="32206" started-at="2020-04-01T14:23:03 CST" finished-at="2020-04-01T14:23:35 CST">
     <groups>
     </groups>
-    <test name="testcase" duration-ms="16690" started-at="2020-03-27T14:58:51 CST" finished-at="2020-03-27T14:59:07 CST">
+    <test name="selenium_maven" duration-ms="32206" started-at="2020-04-01T14:23:03 CST" finished-at="2020-04-01T14:23:35 CST">
       <class name="testcase.test">
-        <test-method status="PASS" signature="case_one()[pri:0, instance:testcase.test@eec5a4a]" name="case_one" duration-ms="16627" started-at="2020-03-27T14:58:51 CST" finished-at="2020-03-27T14:59:07 CST">
+        <test-method status="PASS" signature="case_one()[pri:0, instance:testcase.test@2a2d45ba]" name="case_one" duration-ms="32167" started-at="2020-04-01T14:23:03 CST" finished-at="2020-04-01T14:23:35 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- case_one -->
       </class> <!-- testcase.test -->
-    </test> <!-- testcase -->
-  </suite> <!-- unipaySystem login -->
+    </test> <!-- selenium_maven -->
+  </suite> <!-- Default Suite -->
 </testng-results>

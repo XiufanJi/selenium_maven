@@ -7,19 +7,22 @@
     <groupId>org.example</groupId>
     <artifactId>selenium_maven</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!--配置依赖，依赖信息通过maven repository查找-->
+    <!--配置插件依赖，依赖信息可通过maven repository网站查找-->
     <dependencies>
+    <!--   增加testng依赖     -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
+    <!--   增加selenium依赖     -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+    <!--    guice依赖，运行testng后报错提示缺少inject增加    -->
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
@@ -31,6 +34,12 @@
             <artifactId>reportng</artifactId>
             <version>1.1.4</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.26</version>
         </dependency>
     </dependencies>
     <!--配置用例执行，使用testng.xml-->

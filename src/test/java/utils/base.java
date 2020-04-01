@@ -1,9 +1,7 @@
 package utils;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class base {
     //屏幕截图并按照日期进行分类存放
@@ -74,5 +73,94 @@ public class base {
         }
         return webDriver;
     }
+
+
+    public WebElement findBy(WebDriver driver, String strategy, String locator){
+        /**
+         *
+         * @param driver 浏览器驱动
+         * @param strategy 元素定位的方法
+         * @param locator 元素定位使用的具体定位方式
+         * @return 查找到的单个web元素
+         */
+        WebElement result;
+        try{
+            if (strategy.equals("className")){
+                result = driver.findElement(By.className(locator));
+            }
+            else if (strategy.equals("cssSelector")){
+                result = driver.findElement(By.cssSelector(locator));
+            }
+            else if (strategy.equals("id")){
+                result = driver.findElement(By.id(locator));
+            }
+            else if (strategy.equals("name")){
+                result = driver.findElement(By.name(locator));
+            }
+            else if (strategy.equals("linkText")){
+                result = driver.findElement(By.linkText(locator));
+            }
+            else if (strategy.equals("partialLinkText")){
+                result = driver.findElement(By.partialLinkText(locator));
+            }
+            else if (strategy.equals("tagName")){
+                result = driver.findElement(By.tagName(locator));
+            }
+            else{
+                result = driver.findElement(By.xpath(locator));
+            }
+            return result;
+        }
+        catch (NoSuchElementException e) {
+            WebElement flag = null;
+            return flag;
+        }
+    }
+
+
+    public List<?> findsBy(WebDriver driver, String strategy, String locator){
+        /**
+         *
+         * @param driver 浏览器驱动
+         * @param strategy 元素定位的方法
+         * @param locator 元素定位使用的具体定位方式
+         * @return 查找到的web元素数组
+         */
+        List<?> results;
+        try{
+            if (strategy.equals("className")){
+                results = driver.findElements(By.className(locator));
+            }
+            else if (strategy.equals("cssSelector")){
+                results = driver.findElements(By.cssSelector(locator));
+            }
+            else if (strategy.equals("id")){
+                results = driver.findElements(By.id(locator));
+            }
+            else if (strategy.equals("name")){
+                results = driver.findElements(By.name(locator));
+            }
+            else if (strategy.equals("linkText")){
+                results = driver.findElements(By.linkText(locator));
+            }
+            else if (strategy.equals("partialLinkText")){
+                results = driver.findElements(By.partialLinkText(locator));
+            }
+            else if (strategy.equals("tagName")){
+                results= driver.findElements(By.tagName(locator));
+            }
+            else{
+                results = driver.findElements(By.xpath(locator));
+            }
+            return results;
+        }
+        catch (NoSuchElementException e) {
+            List<?> flag = null;
+            return flag;
+        }
+    }
+
+
+
 
 }
