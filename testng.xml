@@ -2,14 +2,14 @@
 <suite name="unipaySystem login" verbose="1" >
     <test name="testcase">
         <classes>
-            <!--            <class name="testcase.T1"/>-->
+            <class name="testcase.test"/>
             <!--配置对类里面的方法进行用例执行-->
-            <class name="testcase.test">
-                <methods>
-                    <!--include:执行类中包含的用例，exclude: 不执行该用例-->
-                    <include name="case_one"/>
-                </methods>
-            </class>
+<!--            <class name="testcase.test">-->
+<!--                <methods>-->
+<!--                    &lt;!&ndash;include:执行类中包含的用例，exclude: 不执行该用例&ndash;&gt;-->
+<!--                    <include name="case_one"/>-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 <!--  设置报告页面，使用reportng替换testng,可在xml中设置，也可在listener中设置，取消默认listener，使用reportng   -->

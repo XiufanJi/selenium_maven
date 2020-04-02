@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default Suite" duration-ms="32206" started-at="2020-04-01T14:23:03 CST" finished-at="2020-04-01T14:23:35 CST">
+  <suite name="Default Suite" duration-ms="32829" started-at="2020-04-02T17:12:20 CST" finished-at="2020-04-02T17:12:52 CST">
     <groups>
     </groups>
-    <test name="selenium_maven" duration-ms="32206" started-at="2020-04-01T14:23:03 CST" finished-at="2020-04-01T14:23:35 CST">
+    <test name="selenium_maven" duration-ms="32829" started-at="2020-04-02T17:12:20 CST" finished-at="2020-04-02T17:12:52 CST">
       <class name="testcase.test">
-        <test-method status="PASS" signature="case_one()[pri:0, instance:testcase.test@2a2d45ba]" name="case_one" duration-ms="32167" started-at="2020-04-01T14:23:03 CST" finished-at="2020-04-01T14:23:35 CST">
+        <test-method status="PASS" signature="case_one()[pri:0, instance:testcase.test@28feb3fa]" name="case_one" duration-ms="17517" started-at="2020-04-02T17:12:20 CST" finished-at="2020-04-02T17:12:37 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- case_one -->
+        <test-method status="PASS" signature="test_two()[pri:0, instance:testcase.test@28feb3fa]" name="test_two" duration-ms="15263" started-at="2020-04-02T17:12:37 CST" finished-at="2020-04-02T17:12:52 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_two -->
       </class> <!-- testcase.test -->
     </test> <!-- selenium_maven -->
   </suite> <!-- Default Suite -->

@@ -1,15 +1,21 @@
 -
   locator: input[placeholder="用户名"]
-  findStratety: cssSelector
+  Strategy: cssSelector
   operate: sendkeys
   returnNum: single
+  description: 用户名
+  content: haha
 -
   locator: input[placeholder="密码"]
-  findStratety: cssSelector
+  Strategy: cssSelector
   operate: sendkeys
   returnNum: single
+  description: 密码
+  content: 123456
 -
   locator: .login-button
-  findStrategy: cssSelector
+  Strategy: cssSelector
   operate: click
   returnNum: single
+  description: 登录按钮
+  content: blank
