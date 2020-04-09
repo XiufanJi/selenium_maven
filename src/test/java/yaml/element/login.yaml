@@ -1,21 +1,24 @@
 -
   locator: input[placeholder="用户名"]
   Strategy: cssSelector
-  operate: sendkeys
   returnNum: single
   description: 用户名
-  content: haha
+  content: admin
 -
   locator: input[placeholder="密码"]
   Strategy: cssSelector
-  operate: sendkeys
   returnNum: single
   description: 密码
   content: 123456
 -
   locator: .login-button
   Strategy: cssSelector
-  operate: click
   returnNum: single
   description: 登录按钮
+  content: blank
+-
+  locator: div.ant-notification-notice-message
+  Strategy: cssSelector
+  returnNum: single
+  description: 欢迎提示语
   content: blank

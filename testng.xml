@@ -2,7 +2,7 @@
 <suite name="unipaySystem login" verbose="1" >
     <test name="testcase">
         <classes>
-            <class name="testcase.test"/>
+            <class name="testcase.login.login"/>
             <!--配置对类里面的方法进行用例执行-->
 <!--            <class name="testcase.test">-->
 <!--                <methods>-->

@@ -6,13 +6,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
-public class base {
+public class common {
     //屏幕截图并按照日期进行分类存放
     public void screenShot(WebDriver driver){
         /**
@@ -159,7 +162,27 @@ public class base {
         }
     }
 
-
+    public String getAlert(WebDriver driver, String path, String desc){
+        /**
+         * @param driver: 浏览器驱动
+         * @param path: yaml文件的路径
+         * @param desc: 对应yaml文件中的description描述词
+         */
+        WebElement el_success = null;
+        try{
+            operateyaml operate = new operateyaml(path);
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.
+                    cssSelector("div.ant-notification-notice-message")));
+            HashMap<String, WebElement> success = operate.getdata(driver, desc);
+            el_success = success.get("element");
+            System.out.println(String.format("获取到的文字信息为：%s",el_success.getText()));
+            return el_success.getText();
+        }
+        catch (Exception e){
+            return "未获取到对应的提示信息";
+        }
+    }
 
 
 }

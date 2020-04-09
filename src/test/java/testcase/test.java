@@ -3,20 +3,18 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.base;
+import utils.common;
 import utils.operateyaml;
 
-import java.io.FileNotFoundException;
 import java.util.*;
 
 
 public class test {
     @Test
     public void case_one(){
-        base base = new base();
-        WebDriver webDriver = base.browser("Chrome");
+        common common = new common();
+        WebDriver webDriver = common.browser("Chrome");
         try {
             webDriver.get("http://59.46.145.19:8086");
 //        设置页面载入策略
@@ -33,12 +31,12 @@ public class test {
             login.click();
         } catch (NoSuchElementException e) {
 //            报错后进行错误截图保存，并打印报错信息
-            base.screenShot(webDriver);
+            common.screenShot(webDriver);
             e.printStackTrace();
         }
         finally {
             // 关闭页面，退出进程
-            base.screenShot(webDriver);
+            common.screenShot(webDriver);
             webDriver.close();
             webDriver.quit();
         }
@@ -47,7 +45,7 @@ public class test {
 
     @Test
     public void test_two(){
-        base base = new base();
+        common common = new common();
         String path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\login.yaml";
         operateyaml operate = new operateyaml(path);
         WebDriver webDriver = new ChromeDriver();
@@ -64,7 +62,7 @@ public class test {
             System.out.println("元素是否在页面展示："+flag);
         }
        catch (Exception e){
-           base.screenShot(webDriver);
+           common.screenShot(webDriver);
            e.getMessage();
        }
         finally {

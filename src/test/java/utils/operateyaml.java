@@ -49,7 +49,7 @@ public class operateyaml {
          * @return 泛型类的HashMap
          */
         //load返回的数据类型为ArrayList类型，里面子集则是LinkedHashMap类型的
-        base base = new base();
+        common common = new common();
         WebElement element = null;
         List<?> elements = null;
         HashMap<String ,T> map = new HashMap<String , T>();
@@ -57,17 +57,14 @@ public class operateyaml {
         for (LinkedHashMap x: loadData) {
             if(x.get("description").equals(desc)){
                 if(x.get("returnNum").equals("single")){
-                        element = base.findBy(diver, x.get("Strategy").toString(),
+                        element = common.findBy(diver, x.get("Strategy").toString(),
                                 x.get("locator").toString());
                 }
                 else{
-                        elements = base.findsBy(diver,x.get("Strategy").toString(),
+                        elements = common.findsBy(diver,x.get("Strategy").toString(),
                                 x.get("locator").toString());
                 }
             }
-//            else {
-//                System.out.print("输入描述与获取字段不匹配！");
-//            }
         }
         map.put("element",(T) element);
         map.put("elements",(T) elements);
