@@ -1,13 +1,12 @@
 package utils;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 
 public class operateyaml {
@@ -33,16 +32,19 @@ public class operateyaml {
     public String getContent(String desc) throws FileNotFoundException {
         ArrayList<LinkedHashMap> loadData = load();
         String content = "";
-        for (LinkedHashMap x: loadData){
-            if(x.get("description").equals(desc)){
-                content = x.get("content").toString();
+        try{
+            for (LinkedHashMap x: loadData){
+                if(x.get("description").equals(desc)){
+                    content = x.get("content").toString();
+                }
             }
+            return content;
         }
-        return content;
+        catch (Exception e){ return "未获取到content字段";}
     }
 
     //根据输入的描述字段获进行元素的查找并进行返回
-    public <T> T getdata(WebDriver diver, String desc) throws FileNotFoundException {
+    public <T> T getdata(WebDriver driver, String desc) throws FileNotFoundException {
         /**
          * @param desc:对应yaml文件中的描述词description
          * @param driver:对应使用的浏览器驱动
@@ -51,24 +53,25 @@ public class operateyaml {
         //load返回的数据类型为ArrayList类型，里面子集则是LinkedHashMap类型的
         common common = new common();
         WebElement element = null;
-        List<?> elements = null;
-        HashMap<String ,T> map = new HashMap<String , T>();
         ArrayList<LinkedHashMap> loadData = load();
-        for (LinkedHashMap x: loadData) {
-            if(x.get("description").equals(desc)){
-                if(x.get("returnNum").equals("single")){
-                        element = common.findBy(diver, x.get("Strategy").toString(),
+        try{
+            for (LinkedHashMap x: loadData) {
+                if(x.get("description").equals(desc)){
+                    if(x.get("returnNum").equals("single")){
+                        element = common.findBy(driver, x.get("Strategy").toString(),
                                 x.get("locator").toString());
-                }
-                else{
-                        elements = common.findsBy(diver,x.get("Strategy").toString(),
-                                x.get("locator").toString());
+                    }
+                    else{
+                        element = common.findsBy(driver,x.get("Strategy").toString(),
+                                x.get("locator").toString(),desc);
+                    }
                 }
             }
+            return (T) element;
         }
-        map.put("element",(T) element);
-        map.put("elements",(T) elements);
-        return (T) map;
+        catch (Exception e){
+            return (T) "未查找到任何元素！";
+        }
     }
 
 

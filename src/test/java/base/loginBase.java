@@ -28,27 +28,22 @@ public class loginBase {
     public void base(){
         operateyaml operate = new operateyaml(path);
         common common = new common();
-        WebElement el_success = null;
         driver.get(url);
-//        System.out.println(String.format("获取到的页面标题名称为:%s",driver.getTitle()));
-        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
         try{
             System.out.println(String.format("当前页面的句柄为：%s",driver.getWindowHandles()));
 
-            HashMap<String, WebElement> user = operate.getdata(driver,"用户名");
-            WebElement el_user = user.get("element");
+            WebElement el_user = operate.getdata(driver,"用户名");
             String userContent = operate.getContent("用户名");
             el_user.sendKeys(userContent);
 
-            HashMap<String, WebElement> pwd = operate.getdata(driver,"密码");
-            WebElement el_pwd = pwd.get("element");
+            WebElement el_pwd = operate.getdata(driver,"密码");
             String pwdContent = operate.getContent("密码");
             el_pwd.sendKeys(pwdContent);
 
-            HashMap<String, WebElement> login = operate.getdata(driver,"登录按钮");
-            WebElement el_login = login.get("element");
+            WebElement el_login = operate.getdata(driver,"登录按钮");
             el_login.click();
         }
         catch (NoSuchElementException | FileNotFoundException e){

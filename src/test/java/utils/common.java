@@ -85,84 +85,128 @@ public class common {
          * @param locator 元素定位使用的具体定位方式
          * @return 查找到的单个web元素
          */
-        WebElement result;
+        WebElement result = null;
         try{
+            WebDriverWait wait = new WebDriverWait(driver, 2);
             if (strategy.equals("className")){
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.className(locator)));
                 result = driver.findElement(By.className(locator));
             }
             else if (strategy.equals("cssSelector")){
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.cssSelector(locator)));
                 result = driver.findElement(By.cssSelector(locator));
             }
             else if (strategy.equals("id")){
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.id(locator)));
                 result = driver.findElement(By.id(locator));
             }
             else if (strategy.equals("name")){
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.name(locator)));
                 result = driver.findElement(By.name(locator));
             }
             else if (strategy.equals("linkText")){
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.className(locator)));
                 result = driver.findElement(By.linkText(locator));
             }
             else if (strategy.equals("partialLinkText")){
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.partialLinkText(locator)));
                 result = driver.findElement(By.partialLinkText(locator));
             }
             else if (strategy.equals("tagName")){
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.tagName(locator)));
                 result = driver.findElement(By.tagName(locator));
             }
             else{
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.xpath(locator)));
                 result = driver.findElement(By.xpath(locator));
             }
             return result;
         }
         catch (NoSuchElementException e) {
-            WebElement flag = null;
-            return flag;
+            return result;
         }
     }
 
 
-    public List<?> findsBy(WebDriver driver, String strategy, String locator){
+    public WebElement findsBy(WebDriver driver, String strategy, String locator, String desc){
         /**
          *
          * @param driver 浏览器驱动
          * @param strategy 元素定位的方法
          * @param locator 元素定位使用的具体定位方式
-         * @return 查找到的web元素数组
+         * @param desc 对应的元素描述词
+         * @return 查找到的web元素
          */
-        List<?> results;
+        List<WebElement> results;
+        WebElement result = null;
         try{
+            WebDriverWait wait = new WebDriverWait(driver, 2);
             if (strategy.equals("className")){
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.className(locator)));
                 results = driver.findElements(By.className(locator));
             }
             else if (strategy.equals("cssSelector")){
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.cssSelector(locator)));
                 results = driver.findElements(By.cssSelector(locator));
             }
             else if (strategy.equals("id")){
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.id(locator)));
                 results = driver.findElements(By.id(locator));
             }
             else if (strategy.equals("name")){
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.name(locator)));
                 results = driver.findElements(By.name(locator));
             }
             else if (strategy.equals("linkText")){
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.linkText(locator)));
                 results = driver.findElements(By.linkText(locator));
             }
             else if (strategy.equals("partialLinkText")){
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.partialLinkText(locator)));
                 results = driver.findElements(By.partialLinkText(locator));
             }
             else if (strategy.equals("tagName")){
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.tagName(locator)));
                 results= driver.findElements(By.tagName(locator));
             }
             else{
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        By.xpath(locator)));
                 results = driver.findElements(By.xpath(locator));
             }
-            return results;
+            if (results.size()!= 0){
+//                System.out.println("获取到的列表文字信息为：");
+                for (WebElement i: results) {
+//                    System.out.print(i.getText()+" ");
+                    if(i.getText().equals(desc)){
+                        result = i;
+                        break;
+                    }
+                }
+            }
+            return result;
         }
         catch (NoSuchElementException e) {
-            List<?> flag = null;
-            return flag;
+            return result;
         }
     }
 
-    public String getAlert(WebDriver driver, String path, String desc){
+    public <T> T getAlert(WebDriver driver, String path, String desc){
         /**
          * @param driver: 浏览器驱动
          * @param path: yaml文件的路径
@@ -174,15 +218,13 @@ public class common {
             WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.
                     cssSelector("div.ant-notification-notice-message")));
-            HashMap<String, WebElement> success = operate.getdata(driver, desc);
-            el_success = success.get("element");
-            System.out.println(String.format("获取到的文字信息为：%s",el_success.getText()));
-            return el_success.getText();
+            el_success = operate.getdata(driver, desc);
+//            System.out.println(String.format("获取到的文字信息为：%s",el_success.getText()));
+            return (T) el_success.getText();
         }
         catch (Exception e){
-            return "未获取到对应的提示信息";
+            return (T) el_success;
         }
     }
-
 
 }

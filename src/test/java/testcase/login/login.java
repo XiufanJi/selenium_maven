@@ -13,7 +13,6 @@ import java.io.FileNotFoundException;
 
 public class login {
     WebDriver driver;
-
     String url;
     String path;
 
@@ -21,11 +20,11 @@ public class login {
     public void startUp(){
        driver = new ChromeDriver();
        url = "http://192.168.0.57:8097";
-       path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\login.yaml";
+       path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\login.yaml";
     }
 
     @Test
-    public void test_login() throws FileNotFoundException {
+    public void test_login(){
         loginBase loginBase = new loginBase(driver,url,path);
         common common = new common();
         loginBase.base();
