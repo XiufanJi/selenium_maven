@@ -1,29 +1,36 @@
 package testcase.login;
 
 import base.loginBase;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utils.common;
 
-import java.io.FileNotFoundException;
 
 public class login {
     WebDriver driver;
     String url;
     String path;
 
-    @BeforeClass
-    public void startUp(){
-       driver = new ChromeDriver();
-       url = "http://192.168.0.57:8097";
-       path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\login.yaml";
+    @BeforeSuite
+    public void setUp(){
+        driver = new ChromeDriver();
+        url = "http://192.168.0.57:8097";
     }
 
-    @Test
+    @BeforeClass
+    public void startUp(){
+        path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\login.yaml";
+        driver.get(url);
+        driver.manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.NONE);
+    }
+
+    @Test(groups = "login")
     public void test_login(){
         loginBase loginBase = new loginBase(driver,url,path);
         common common = new common();
@@ -33,7 +40,7 @@ public class login {
         Assert.assertEquals(text,"欢迎");
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown(){
         driver.close();
         driver.quit();

@@ -217,7 +217,7 @@ public class common {
             operateyaml operate = new operateyaml(path);
             WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.
-                    cssSelector("div.ant-notification-notice-message")));
+                    cssSelector(operate.getLocator(desc))));
             el_success = operate.getdata(driver, desc);
 //            System.out.println(String.format("获取到的文字信息为：%s",el_success.getText()));
             return (T) el_success.getText();

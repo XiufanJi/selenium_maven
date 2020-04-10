@@ -1,28 +1,28 @@
-# 存储登录的元素信息
+# 存储交易管理菜单的元素信息
 # yaml文件内的格式固定如下：locator-定位元素的具体策略，strategy-定位元素使用的方法
 # returnNum-根据策略所能定位到的元素个数(single，more)，description-元素描述
 #，content-主要用于传值，无需传值则写成blank
 -
-  locator: input[placeholder="用户名"]
+  locator: div.ant-menu-submenu-title>span>span
   Strategy: cssSelector
-  returnNum: single
-  description: 用户名
-  content: admin
--
-  locator: input[placeholder="密码"]
-  Strategy: cssSelector
-  returnNum: single
-  description: 密码
-  content: 123456
--
-  locator: .login-button
-  Strategy: cssSelector
-  returnNum: single
-  description: 登录按钮
+  returnNum: more
+  description: 交易管理
   content: blank
 -
-  locator: div.ant-notification-notice-message
+  locator: a[href="/trade/PayOrder"]
   Strategy: cssSelector
   returnNum: single
-  description: 欢迎提示语
+  description: 支付订单查询
+  content: blank
+-
+  locator: a[href="/trade/PayDetails"]
+  Strategy: cssSelector
+  returnNum: single
+  description: 支付明细查询
+  content: blank
+-
+  locator: span[pagekey="/trade/PayOrder"]
+  Strategy: cssSelector
+  returnNum: single
+  description: 支付订单页面标题
   content: blank

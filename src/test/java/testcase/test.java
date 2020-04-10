@@ -59,7 +59,7 @@ public class test {
 
     @Test(dependsOnMethods = {"case_one"})
     public void test_two(){
-        String path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\tradeOrder.yaml";
+        String path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\tradeManage.yaml";
         try{
             String locator = "div.ant-menu-submenu-title>span>span";
             WebDriverWait wait = new WebDriverWait(webDriver, 10);

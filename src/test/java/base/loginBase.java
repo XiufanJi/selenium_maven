@@ -28,10 +28,10 @@ public class loginBase {
     public void base(){
         operateyaml operate = new operateyaml(path);
         common common = new common();
-        driver.get(url);
-        driver.manage().window().maximize();
-        ChromeOptions options = new ChromeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NONE);
+//        driver.get(url);
+//        driver.manage().window().maximize();
+//        ChromeOptions options = new ChromeOptions();
+//        options.setPageLoadStrategy(PageLoadStrategy.NONE);
         try{
             System.out.println(String.format("当前页面的句柄为：%s",driver.getWindowHandles()));
 

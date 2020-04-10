@@ -43,6 +43,21 @@ public class operateyaml {
         catch (Exception e){ return "未获取到content字段";}
     }
 
+    //获取yaml文件中的Locator字段
+    public String getLocator(String desc) throws FileNotFoundException {
+        ArrayList<LinkedHashMap> loadData = load();
+        String locator = "";
+        try{
+            for (LinkedHashMap x: loadData){
+                if(x.get("description").equals(desc)){
+                    locator = x.get("locator").toString();
+                }
+            }
+            return locator;
+        }
+        catch (Exception e){ return "未获取到locator字段";}
+    }
+
     //根据输入的描述字段获进行元素的查找并进行返回
     public <T> T getdata(WebDriver driver, String desc) throws FileNotFoundException {
         /**

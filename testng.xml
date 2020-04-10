@@ -3,6 +3,7 @@
     <test name="testcase">
         <classes>
             <class name="testcase.login.login"/>
+            <class name="testcase.tradeManage.tradeOrder"/>
             <!--配置对类里面的方法进行用例执行-->
 <!--            <class name="testcase.test">-->
 <!--                <methods>-->
