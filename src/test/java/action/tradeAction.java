@@ -1,4 +1,4 @@
-package base;
+package action;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -8,10 +8,10 @@ import utils.operateyaml;
 
 import java.io.FileNotFoundException;
 
-public class tradeBase {
+public class tradeAction {
     WebDriver driver;
     String path;
-    public tradeBase(WebDriver dirver, String path){
+    public tradeAction(WebDriver dirver, String path){
         /**
          * @param driver:使用的浏览器驱动；
          * @param url:登录地址；
