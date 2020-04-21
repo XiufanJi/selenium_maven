@@ -110,7 +110,7 @@ public class common {
             }
             else if (strategy.equals("linkText")){
                 wait.until(ExpectedConditions.presenceOfElementLocated(
-                        By.className(locator)));
+                        By.linkText(locator)));
                 result = driver.findElement(By.linkText(locator));
             }
             else if (strategy.equals("partialLinkText")){

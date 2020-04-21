@@ -1,5 +1,6 @@
 package action;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,12 +26,14 @@ public class tradeAction {
         operateyaml operate = new operateyaml(path);
         common common = new common();
         try {
-            WebElement tradeManage = operate.getdata(driver,"");
+            WebElement tradeManage = operate.getdata(driver,"交易管理");
             System.out.println(String.format("获取到元素文字为：%s",tradeManage.getText()));
             tradeManage.click();
-            WebElement tradeOrder = operate.getdata(driver,"");
+            WebElement tradeOrder = operate.getdata(driver,"支付订单查询");
             System.out.println(String.format("获取到元素文字为：%s",tradeOrder.getText()));
             tradeOrder.click();
+
+
         }
         catch (NoSuchElementException | FileNotFoundException e){
             common.screenShot(driver);

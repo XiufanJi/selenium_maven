@@ -3,11 +3,11 @@ package testcase.login;
 import action.loginAction;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import utils.common;
+import utils.singleTonDriver;
 
 
 public class login{
@@ -15,23 +15,14 @@ public class login{
     WebDriver driver;
     String url;
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
-    }
-
     @BeforeTest
     public void beforeTest(){
-        setDriver(new ChromeDriver());
-        driver = getDriver();
+       driver = singleTonDriver.getDriver("chrome");
     }
 
     @BeforeClass
     public void beforeClass(){
-        url = "http://192.168.0.57:8097";
+        url = "http://192.168.0.62:8096/";
         driver.get(url);
         path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\login.yaml";
         driver.manage().window().maximize();

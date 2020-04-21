@@ -9,14 +9,14 @@
   description: 交易管理
   content: blank
 -
-  locator: a[href="/trade/PayOrder"]
-  Strategy: cssSelector
+  locator: 支付订单查询
+  Strategy: linkText
   returnNum: single
   description: 支付订单查询
   content: blank
 -
-  locator: a[href="/trade/PayDetails"]
-  Strategy: cssSelector
+  locator: 支付明细查询
+  Strategy: linkText
   returnNum: single
   description: 支付明细查询
   content: blank
@@ -25,4 +25,28 @@
   Strategy: cssSelector
   returnNum: single
   description: 支付订单页面标题
+  content: blank
+-
+  locator: button[class="ant-btn ant-btn-primary"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 查询按钮
+  content: blank
+-
+  locator: button[class="ant-btn ant-btn-primary"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 当日对账按钮
+  content: blank
+-
+  locator: span[class="ant-tag ant-tag-has-color"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 操作栏查询按钮
+  content: blank
+-
+  locator: span[class="ant-tag ant-tag-has-color"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 操作栏查询按钮
   content: blank
