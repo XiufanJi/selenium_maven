@@ -9,7 +9,6 @@ pipeline {
 
     stage('test') {
       steps {
-        sh 'echo"begin test"'
         sh 'mvn package'
       }
     }
