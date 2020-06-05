@@ -9,8 +9,8 @@ pipeline {
 
     stage('test') {
       steps {
-        sh '''sh label: \'\', script: \'\'\'#!/bin/bash -il 
-mvn package\'\'\''''
+        sh '''#!/bin/bash -il 
+mvn package'''
       }
     }
 
