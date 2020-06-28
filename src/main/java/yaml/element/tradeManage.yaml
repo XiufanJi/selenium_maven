@@ -1,0 +1,52 @@
+# 存储交易管理菜单的元素信息
+# yaml文件内的格式固定如下：locator-定位元素的具体策略，strategy-定位元素使用的方法
+# returnNum-根据策略所能定位到的元素个数(single，more)，description-元素描述
+#，content-主要用于传值，无需传值则写成blank
+-
+  locator: div.ant-menu-submenu-title>span>span
+  Strategy: cssSelector
+  returnNum: more
+  description: 交易管理
+  content: blank
+-
+  locator: 支付订单查询
+  Strategy: linkText
+  returnNum: single
+  description: 支付订单查询
+  content: blank
+-
+  locator: 支付明细查询
+  Strategy: linkText
+  returnNum: single
+  description: 支付明细查询
+  content: blank
+-
+  locator: span[pagekey="/trade/PayOrder"]
+  Strategy: cssSelector
+  returnNum: single
+  description: 支付订单页面标题
+  content: blank
+-
+  locator: button[class="ant-btn ant-btn-primary"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 查询按钮
+  content: blank
+-
+  locator: button[class="ant-btn ant-btn-primary"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 当日对账按钮
+  content: blank
+-
+  locator: span[class="ant-tag ant-tag-has-color"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 操作栏查询按钮
+  content: blank
+-
+  locator: span[class="ant-tag ant-tag-has-color"]
+  Strategy: cssSelector
+  returnNum: more
+  description: 操作栏查询按钮
+  content: blank
