@@ -98,11 +98,11 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.3</version>
-                <configuration>
+                <!--<configuration>
                     <includes>
                         <include>com/**/*</include>
                     </includes>
-                </configuration>
+                </configuration>-->
                 <executions>
                     <execution>
                         <id>pre-test</id>
