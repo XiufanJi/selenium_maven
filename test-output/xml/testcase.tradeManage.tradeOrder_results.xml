@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="2.682">
+           time="2.180">
   <properties />
   
   
-            <testcase name="test_order" time="2.682" classname="testcase.tradeManage.tradeOrder" />
+            <testcase name="test_order" time="2.180" classname="testcase.tradeManage.tradeOrder" />
       
 </testsuite>

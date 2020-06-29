@@ -25,8 +25,6 @@ public class loginAction {
         operateyaml operate = new operateyaml(path);
         common common = new common();
         try{
-//            System.out.println(String.format("当前页面的句柄为：%s",driver.getWindowHandles()));
-
             WebElement el_user = operate.getdata(driver,"用户名");
             String userContent = operate.getContent("用户名");
             el_user.sendKeys(userContent);

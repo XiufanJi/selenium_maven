@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import utils.common;
-import utils.singleTonDriver;
+import utils.singleton;
 
 
 public class login{
@@ -15,16 +15,12 @@ public class login{
     WebDriver driver;
     String url;
 
-    @BeforeTest
-    public void beforeTest(){
-       driver = singleTonDriver.getDriver("chrome");
-    }
-
     @BeforeClass
     public void beforeClass(){
-        url = "http://192.168.0.62:8096/";
+        driver = singleton.getDriver("chrome");
+        url = "http://192.168.0.64:8098/";
         driver.get(url);
-        path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\login.yaml";
+        path = "yaml\\element\\login.yaml";
         driver.manage().window().maximize();
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
@@ -37,5 +33,10 @@ public class login{
         String text = common.getAlert(driver,path,"欢迎提示语");
         System.out.println(String.format("获取到的提示语为：%s",text));
         Assert.assertEquals(text,"欢迎");
+    }
+
+    @AfterClass
+    public void afterClass() throws InterruptedException {
+        Thread.sleep(2000);
     }
 }

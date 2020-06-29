@@ -2,27 +2,32 @@ package testcase.tradeManage;
 
 import action.tradeAction;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utils.common;
-import utils.singleTonDriver;
+import utils.singleton;
 
-public class tradeOrder {
+
+public class tradeOrder{
     WebDriver driver;
     String path;
 
     @BeforeClass
     public void startUp(){
-        driver = singleTonDriver.getDriver("chrome");
-
-        path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\tradeManage.yaml";
+        driver = singleton.getDriver("chrome");
+        path = "yaml\\element\\tradeManage.yaml";
+//        login loginPage=PageFactory.initElements(login.driver,login.class);
+//        loginPage.test_login();
     }
 
     @Test(dependsOnGroups = {"login"})
     public void test_order(){
         driver.getCurrentUrl();
+//        System.out.println("页面标题为："+driver.getTitle());
         tradeAction orderBase = new tradeAction(driver, path);
         common common = new common();
         orderBase.order();
@@ -33,7 +38,7 @@ public class tradeOrder {
 
     @AfterSuite
     public void afterSuite(){
-        driver.close();
-        driver.quit();
+       driver.close();
+       driver.quit();
     }
 }

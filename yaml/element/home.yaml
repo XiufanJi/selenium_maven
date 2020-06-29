@@ -1,0 +1,13 @@
+-
+  locator: 首页
+  Strategy: linkText
+  returnNum: single
+  description: 首页
+  content: blank
+-
+  locator: span[pagekey="/dashboard/analysis"]
+  Strategy: cssSelector
+  returnNum: single
+  description: 首页标题
+  content: blank
+

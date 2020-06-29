@@ -19,4 +19,3 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
 </suite>
-

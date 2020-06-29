@@ -2,19 +2,27 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default Suite" duration-ms="32829" started-at="2020-04-02T17:12:20 CST" finished-at="2020-04-02T17:12:52 CST">
+  <suite name="Default Suite" duration-ms="16674" started-at="2020-06-28T16:27:41 CST" finished-at="2020-06-28T16:27:58 CST">
     <groups>
     </groups>
-    <test name="selenium_maven" duration-ms="32829" started-at="2020-04-02T17:12:20 CST" finished-at="2020-04-02T17:12:52 CST">
+    <test name="selenium_maven" duration-ms="16674" started-at="2020-06-28T16:27:41 CST" finished-at="2020-06-28T16:27:58 CST">
       <class name="testcase.test">
-        <test-method status="PASS" signature="case_one()[pri:0, instance:testcase.test@28feb3fa]" name="case_one" duration-ms="17517" started-at="2020-04-02T17:12:20 CST" finished-at="2020-04-02T17:12:37 CST">
+        <test-method status="PASS" signature="before()[pri:0, instance:testcase.test@32eebfca]" name="before" is-config="true" duration-ms="11862" started-at="2020-06-28T16:27:41 CST" finished-at="2020-06-28T16:27:53 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- before -->
+        <test-method status="PASS" signature="case_one()[pri:0, instance:testcase.test@32eebfca]" name="case_one" duration-ms="739" started-at="2020-06-28T16:27:53 CST" finished-at="2020-06-28T16:27:54 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- case_one -->
-        <test-method status="PASS" signature="test_two()[pri:0, instance:testcase.test@28feb3fa]" name="test_two" duration-ms="15263" started-at="2020-04-02T17:12:37 CST" finished-at="2020-04-02T17:12:52 CST">
+        <test-method status="PASS" signature="test_two()[pri:0, instance:testcase.test@32eebfca]" name="test_two" duration-ms="3152" started-at="2020-06-28T16:27:54 CST" depends-on-methods="testcase.test.case_one" finished-at="2020-06-28T16:27:57 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test_two -->
+        <test-method status="PASS" signature="after()[pri:0, instance:testcase.test@32eebfca]" name="after" is-config="true" duration-ms="872" started-at="2020-06-28T16:27:57 CST" finished-at="2020-06-28T16:27:58 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
       </class> <!-- testcase.test -->
     </test> <!-- selenium_maven -->
   </suite> <!-- Default Suite -->

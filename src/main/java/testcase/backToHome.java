@@ -27,9 +27,9 @@ public class backToHome {
 
     @BeforeClass
     public void beforeClass(){
-        url = "http://192.168.0.57:8097";
+        url = "http://192.168.0.64:8098";
         driver.get(url);
-        path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\home.yaml";
+        path = "yaml\\element\\home.yaml";
         driver.manage().window().maximize();
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NONE);

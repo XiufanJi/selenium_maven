@@ -21,7 +21,7 @@ public class test {
     @BeforeClass
     public void before(){
         webDriver = new ChromeDriver();
-        webDriver.get("http://192.168.0.57:8097");
+        webDriver.get("http://192.168.0.64:8098");
         webDriver.manage().window().maximize();
 //        设置页面载入策略
         ChromeOptions options = new ChromeOptions();
@@ -59,7 +59,7 @@ public class test {
 
     @Test(dependsOnMethods = {"case_one"})
     public void test_two(){
-        String path = "D:\\idea-workspace\\selenium_maven\\src\\test\\java\\yaml\\element\\tradeManage.yaml";
+        String path = "..\\yaml\\element\\tradeManage.yaml";
         try{
             String locator = "div.ant-menu-submenu-title>span>span";
             WebDriverWait wait = new WebDriverWait(webDriver, 10);
