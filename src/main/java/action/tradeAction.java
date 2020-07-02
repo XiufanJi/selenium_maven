@@ -26,14 +26,15 @@ public class tradeAction {
         common common = new common();
         try {
             WebElement tradeManage = operate.getdata(driver,"支付订单管理");
-            System.out.println(String.format("获取到元素文字为：%s",tradeManage.getText()));
+//            System.out.println(String.format("获取到元素文字为：%s",tradeManage.getText()));
             tradeManage.click();
             WebElement tradeOrder = operate.getdata(driver,"支付订单查询");
-            System.out.println(String.format("获取到元素文字为：%s",tradeOrder.getText()));
+//            System.out.println(String.format("获取到元素文字为：%s",tradeOrder.getText()));
             tradeOrder.click();
         }
         catch (NoSuchElementException | FileNotFoundException e){
             common.screenShot(driver);
+//            throw new NoSuchMethodException("");
             e.printStackTrace();
         }
     }

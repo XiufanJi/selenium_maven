@@ -25,7 +25,7 @@ public class login{
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
     }
-    @Test(groups = "login")
+    @Test(groups = "login",description = "log in web page")
     public void test_login(){
         loginAction loginBase = new loginAction(driver,url,path);
         common common = new common();

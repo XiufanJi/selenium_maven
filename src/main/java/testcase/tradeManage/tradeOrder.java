@@ -24,7 +24,7 @@ public class tradeOrder{
 //        loginPage.test_login();
     }
 
-    @Test(dependsOnGroups = {"login"})
+    @Test(dependsOnGroups = {"login"},description ="orderPay page")
     public void test_order(){
         driver.getCurrentUrl();
 //        System.out.println("页面标题为："+driver.getTitle());

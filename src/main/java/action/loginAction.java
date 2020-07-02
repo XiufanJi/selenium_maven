@@ -21,6 +21,7 @@ public class loginAction {
         this.url = url;
         this.path = path;
     }
+//    进行页面登录操作：包括输入用户名、密码，点击登录按钮
     public void base(){
         operateyaml operate = new operateyaml(path);
         common common = new common();

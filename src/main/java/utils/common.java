@@ -1,7 +1,9 @@
 package utils;
 
+import com.sun.mail.util.MailSSLSocketFactory;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,11 +11,18 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
+import java.security.GeneralSecurityException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class common {
     //屏幕截图并按照日期进行分类存放
@@ -224,6 +233,67 @@ public class common {
         }
         catch (Exception e){
             return (T) el_success;
+        }
+    }
+
+    // 以附件形式进行邮件发送测试报告
+//    这里如果需要单独使用的话，需要重新写一份html页面才可以，否则打开后页面所需样式会缺失
+//    最好搭配jenkins来使用，这样就可以不需要调用该方法了
+    public void sendEmail(final String from, String to, String host, final String authCode){
+        /**
+        * @param from: 邮件发送者
+        * @param to: 邮件接收者
+        * @param host： 邮件发送使用的服务器
+        * @param authcode: 邮箱身份验证码
+        */
+//        获取系统属性
+        Properties properties = System.getProperties();
+        // 设置SSl校验
+        MailSSLSocketFactory socketFactory = null;
+        try {
+            socketFactory = new MailSSLSocketFactory();
+        } catch (GeneralSecurityException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        socketFactory.setTrustAllHosts(true);
+        //		设置邮件服务器
+        properties.put("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.ssl.socketFactory", socketFactory);
+        properties.setProperty("mail.smtp.host", host);
+        properties.put("mail.smtp.auth", "true");
+        // 获取默认session对象
+        Session session = Session.getDefaultInstance(properties,new Authenticator(){
+            public PasswordAuthentication getPasswordAuthentication()
+            {
+                //发件人邮件用户名、授权码
+                return new PasswordAuthentication(from, authCode);
+            }
+        });
+        try{
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject("测试结果报告");
+            BodyPart bodyPart=new MimeBodyPart();
+            bodyPart.setText("测试结果报告，请点击附件进行查看");
+
+            Multipart multipart=new MimeMultipart();
+            multipart.addBodyPart(bodyPart);
+            bodyPart=new MimeBodyPart();
+//            测试报告的路径
+            String filename="test-output\\html\\index.html";
+            DataSource source=new FileDataSource(filename);
+            bodyPart.setDataHandler(new DataHandler(source));
+            bodyPart.setFileName(filename);
+            multipart.addBodyPart(bodyPart);
+
+            message.setContent(multipart);
+
+            Transport.send(message);
+            System.out.println("邮件发送成功");
+        }catch (MessagingException e){
+            e.printStackTrace();
         }
     }
 

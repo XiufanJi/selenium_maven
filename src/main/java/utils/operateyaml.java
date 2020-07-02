@@ -82,11 +82,12 @@ public class operateyaml {
                     }
                 }
             }
-            return (T) element;
         }
         catch (Exception e){
-            return (T) "未查找到任何元素！";
+            e.printStackTrace();
+//            return (T) "未查找到任何元素！";
         }
+        return (T) element;
     }
 
 

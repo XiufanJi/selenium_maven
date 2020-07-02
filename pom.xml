@@ -53,6 +53,25 @@
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
 
     </dependencies>
     <!--配置用例执行，使用testng.xml-->
@@ -68,6 +87,7 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+            <!--maven编译打包和jacoco生成代码覆盖率设置-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
