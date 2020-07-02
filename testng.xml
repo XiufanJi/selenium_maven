@@ -1,6 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="unipaySystem Test" verbose="1" >
-    <test name="testcase">
+<suite name="unifyPaySystem Test" verbose="1" >
+    <parameter name="selenium.browser" value="chrome"/>
+    <parameter name="selenium.url" value="http://192.168.0.64:8098/"/>
+    <parameter name="loginPage.login" value="yaml\element\login.yaml"/>
+    <parameter name="tradePage.order" value="yaml\element\tradeManage.yaml"/>
+
+    <test name="testcase" preserve-order="true">
         <classes>
             <class name="testcase.login.login"/>
             <class name="testcase.tradeManage.tradeOrder"/>

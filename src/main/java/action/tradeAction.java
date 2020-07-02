@@ -32,7 +32,7 @@ public class tradeAction {
 //            System.out.println(String.format("获取到元素文字为：%s",tradeOrder.getText()));
             tradeOrder.click();
         }
-        catch (NoSuchElementException | FileNotFoundException e){
+        catch (FileNotFoundException  e){
             common.screenShot(driver);
 //            throw new NoSuchMethodException("");
             e.printStackTrace();

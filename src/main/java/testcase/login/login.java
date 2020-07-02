@@ -5,6 +5,7 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import utils.common;
 import utils.singleton;
@@ -16,11 +17,13 @@ public class login{
     String url;
 
     @BeforeClass
-    public void beforeClass(){
-        driver = singleton.getDriver("chrome");
-        url = "http://192.168.0.64:8098/";
+    public void beforeClass(ITestContext context){
+//        获取配置的参数
+        String browser = context.getCurrentXmlTest().getParameter("selenium.browser");
+        driver = singleton.getDriver(browser);
+        url = context.getCurrentXmlTest().getParameter("selenium.url");
         driver.get(url);
-        path = "yaml\\element\\login.yaml";
+        path = context.getCurrentXmlTest().getParameter("loginPage.login");
         driver.manage().window().maximize();
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NONE);

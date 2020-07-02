@@ -7,6 +7,7 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.NoSuchElementException;
 
 
 public class operateyaml {
@@ -83,8 +84,9 @@ public class operateyaml {
                 }
             }
         }
-        catch (Exception e){
+        catch (NoSuchElementException e){
             e.printStackTrace();
+            throw new NoSuchElementException("未查找到任何元素！");
 //            return (T) "未查找到任何元素！";
         }
         return (T) element;
