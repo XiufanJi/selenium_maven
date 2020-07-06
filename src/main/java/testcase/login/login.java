@@ -8,9 +8,11 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import utils.common;
+import utils.retry;
 import utils.singleton;
 
 
+@Test(retryAnalyzer = retry.class)
 public class login{
     String path;
     WebDriver driver;

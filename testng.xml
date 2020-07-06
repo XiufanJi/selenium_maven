@@ -10,12 +10,17 @@
             <class name="testcase.login.login"/>
             <class name="testcase.tradeManage.tradeOrder"/>
             <!--配置对类里面的方法进行用例执行-->
-<!--            <class name="testcase.test">-->
+<!--            <class name="com.selenium.debug.test">-->
 <!--                <methods>-->
 <!--                    &lt;!&ndash;include:执行类中包含的用例，exclude: 不执行该用例&ndash;&gt;-->
 <!--                    <include name="case_one"/>-->
 <!--                </methods>-->
 <!--            </class>-->
+        </classes>
+    </test>
+    <test name="com.selenium.debug">
+        <classes>
+            <class name="com.selenium.debug.testFactory"/>
         </classes>
     </test>
 <!--  设置报告页面，使用reportng替换testng,可在xml中设置，也可在listener中设置，取消默认listener，使用reportng   -->

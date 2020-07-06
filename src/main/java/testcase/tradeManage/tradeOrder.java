@@ -3,15 +3,16 @@ package testcase.tradeManage;
 import action.tradeAction;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.common;
+import utils.retry;
 import utils.singleton;
 
 
+@Test(retryAnalyzer = retry.class)
 public class tradeOrder{
     WebDriver driver;
     String path_order;

@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default Suite]">
   <test thread-count="5" name="selenium_maven(failed)">
     <classes>
-      <class name="testcase.test">
+      <class name="com.selenium.debug.test">
         <methods>
           <include name="after"/>
           <include name="case_one"/>
           <include name="test_two"/>
           <include name="before"/>
         </methods>
-      </class> <!-- testcase.test -->
+      </class> <!-- com.selenium.debug.test -->
     </classes>
   </test> <!-- selenium_maven(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->
