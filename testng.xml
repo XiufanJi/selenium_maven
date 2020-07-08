@@ -2,13 +2,13 @@
 <suite name="unifyPaySystem Test" verbose="1" >
     <parameter name="selenium.browser" value="chrome"/>
     <parameter name="selenium.url" value="http://192.168.0.64:8098/"/>
-    <parameter name="loginPage.login" value="yaml\element\login.yaml"/>
-    <parameter name="tradePage.order" value="yaml\element\tradeManage.yaml"/>
+    <parameter name="loginPage.login" value="yaml\login.yaml"/>
+    <parameter name="tradePage.order" value="yaml\tradeManage.yaml"/>
 
     <test name="testcase" preserve-order="true">
         <classes>
-            <class name="testcase.login.login"/>
-            <class name="testcase.tradeManage.tradeOrder"/>
+            <!--<class name="testcase.login.login"/>
+            <class name="testcase.tradeManage.tradeOrder"/>-->
             <!--配置对类里面的方法进行用例执行-->
 <!--            <class name="com.selenium.debug.test">-->
 <!--                <methods>-->
@@ -20,12 +20,14 @@
     </test>
     <test name="com.selenium.debug">
         <classes>
-            <class name="com.selenium.debug.testFactory"/>
+            <!--<class name="com.selenium.debug.testFactory"/>-->
         </classes>
     </test>
 <!--  设置报告页面，使用reportng替换testng,可在xml中设置，也可在listener中设置，取消默认listener，使用reportng   -->
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <!--添加失败重跑监听-->
+        <listener class-name="utils.retryListener"/>
     </listeners>
 </suite>

@@ -1,17 +1,17 @@
-package action;
+package page;
 
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.common;
 import utils.operateyaml;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
-public class tradeAction {
+public class tradePage {
     WebDriver driver;
     String path;
-    public tradeAction(WebDriver dirver, String path){
+    public tradePage(WebDriver dirver, String path){
         /**
          * @param driver:使用的浏览器驱动；
          * @param url:登录地址；
@@ -21,7 +21,7 @@ public class tradeAction {
         this.path = path;
     }
 
-    public void order(){
+    public void order() throws IOException {
         operateyaml operate = new operateyaml(path);
         common common = new common();
         try {

@@ -1,17 +1,18 @@
-package action;
+package page;
 
 import org.openqa.selenium.*;
 import utils.common;
 import utils.operateyaml;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 //登录操作
-public class loginAction {
+public class loginPage {
     WebDriver driver;
     String url;
     String path;
-    public loginAction(WebDriver dirver, String url, String path){
+    public loginPage(WebDriver dirver, String url, String path){
         /**
          * @param driver:使用的浏览器驱动；
          * @param url:登录地址；
@@ -22,7 +23,7 @@ public class loginAction {
         this.path = path;
     }
 //    进行页面登录操作：包括输入用户名、密码，点击登录按钮
-    public void base(){
+    public void base() throws IOException {
         operateyaml operate = new operateyaml(path);
         common common = new common();
         try{

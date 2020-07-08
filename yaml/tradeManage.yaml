@@ -30,19 +30,13 @@
   locator: button[class="ant-btn ant-btn-primary"]
   Strategy: cssSelector
   returnNum: more
-  description: 查询按钮
+  description: 查询
   content: blank
 -
   locator: button[class="ant-btn ant-btn-primary"]
   Strategy: cssSelector
   returnNum: more
-  description: 当日对账按钮
-  content: blank
--
-  locator: span[class="ant-tag ant-tag-has-color"]
-  Strategy: cssSelector
-  returnNum: more
-  description: 操作栏查询按钮
+  description: 当日对账拉取
   content: blank
 -
   locator: span[class="ant-tag ant-tag-has-color"]

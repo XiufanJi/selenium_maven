@@ -14,6 +14,7 @@ import utils.common;
 import utils.operateyaml;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class backToHome {
     String path;
@@ -35,7 +36,7 @@ public class backToHome {
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
     }
     @Test
-    public void test_home(){
+    public void test_home() throws IOException {
         operateyaml operate = new operateyaml(path);
         common common = new common();
         try{

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.test</groupId>
     <artifactId>selenium_maven</artifactId>
     <version>1.0-SNAPSHOT</version>
     <!--配置插件依赖，依赖信息可通过maven repository网站查找-->
@@ -16,7 +16,8 @@
             <version>7.1.0</version>
             <!--<scope>test</scope>-->
         </dependency>
-    <!--   增加selenium依赖     -->
+    <!--   增加selenium依赖,4.0版本增加了相关定位方法，可根据元素周围的相关元素帮助进行目标元素定位，
+    不过现在还是alpha内侧版     -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>

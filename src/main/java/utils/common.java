@@ -26,7 +26,7 @@ import java.util.*;
 
 public class common {
     //屏幕截图并按照日期进行分类存放
-    public void screenShot(WebDriver driver){
+    public void screenShot(WebDriver driver) throws IOException {
         /**
          * @param driver: 浏览器使用的驱动类型(Firefox、chrome..)
          */
@@ -60,8 +60,8 @@ public class common {
         }
         catch (IOException e) {
             // TODO Auto-generated catch block
-            System.out.println("找不到对应的文件目录！");
             e.printStackTrace();
+            throw new java.io.IOException("找不到对应的文件目录！");
         }
     }
 
@@ -211,7 +211,9 @@ public class common {
             return result;
         }
         catch (NoSuchElementException e) {
-            return result;
+            e.printStackTrace();
+            throw new java.util.NoSuchElementException("未查找到任何元素！");
+//            return result;
         }
     }
 
@@ -232,7 +234,8 @@ public class common {
             return (T) el_success.getText();
         }
         catch (Exception e){
-            return (T) el_success;
+            e.printStackTrace();
+            throw new java.util.NoSuchElementException("没有获取到任何提示信息！");
         }
     }
 

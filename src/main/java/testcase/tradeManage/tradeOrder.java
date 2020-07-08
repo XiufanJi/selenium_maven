@@ -1,6 +1,6 @@
 package testcase.tradeManage;
 
-import action.tradeAction;
+import page.tradePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 import utils.common;
 import utils.retry;
 import utils.singleton;
+
+import java.io.IOException;
 
 
 @Test(retryAnalyzer = retry.class)
@@ -27,10 +29,10 @@ public class tradeOrder{
     }
 
     @Test(dependsOnGroups = {"login"},description ="orderPay page")
-    public void test_order(){
+    public void test_order() throws IOException {
         driver.getCurrentUrl();
 //        System.out.println("页面标题为："+driver.getTitle());
-        tradeAction orderBase = new tradeAction(driver, path_order);
+        tradePage orderBase = new tradePage(driver, path_order);
         common common = new common();
         orderBase.order();
         String pageTitle = common.getAlert(driver, path_order, "支付订单页面标题");

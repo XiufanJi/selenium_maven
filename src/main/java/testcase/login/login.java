@@ -1,6 +1,6 @@
 package testcase.login;
 
-import action.loginAction;
+import page.loginPage;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +10,8 @@ import org.testng.annotations.*;
 import utils.common;
 import utils.retry;
 import utils.singleton;
+
+import java.io.IOException;
 
 
 @Test(retryAnalyzer = retry.class)
@@ -31,8 +33,8 @@ public class login{
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
     }
     @Test(groups = {"login"},description = "log in web page")
-    public void test_login(){
-        loginAction loginBase = new loginAction(driver,url,path);
+    public void test_login() throws IOException {
+        loginPage loginBase = new loginPage(driver,url,path);
         common common = new common();
         loginBase.base();
         String text = common.getAlert(driver,path,"欢迎提示语");
