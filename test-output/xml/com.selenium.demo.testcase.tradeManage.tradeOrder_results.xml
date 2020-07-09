@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.selenium.demo.testcase"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="3.839">
+  <properties />
+  
+  
+            <testcase name="test_order" time="3.839" classname="com.selenium.demo.testcase.tradeManage.tradeOrder" />
+      
+</testsuite>

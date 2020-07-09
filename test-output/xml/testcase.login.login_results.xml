@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testcase"
+<testsuite name="com.selenium.demo.testcase"
            tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="3.283">
+           time="2.538">
   <properties />
   
   
-            <testcase name="test_login" time="3.283" classname="testcase.login.login" />
+            <testcase name="test_login" time="2.538" classname="com.selenium.demo.testcase.login.login" />
       
 </testsuite>

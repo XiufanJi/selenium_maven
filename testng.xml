@@ -5,10 +5,10 @@
     <parameter name="loginPage.login" value="yaml\login.yaml"/>
     <parameter name="tradePage.order" value="yaml\tradeManage.yaml"/>
 
-    <test name="testcase" preserve-order="true">
+    <test name="com.selenium.demo.testcase" preserve-order="true">
         <classes>
-            <!--<class name="testcase.login.login"/>
-            <class name="testcase.tradeManage.tradeOrder"/>-->
+            <class name="com.selenium.demo.testcase.login.login"/>
+            <class name="com.selenium.demo.testcase.tradeManage.tradeOrder"/>
             <!--配置对类里面的方法进行用例执行-->
 <!--            <class name="com.selenium.debug.test">-->
 <!--                <methods>-->
@@ -28,6 +28,6 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
         <!--添加失败重跑监听-->
-        <listener class-name="utils.retryListener"/>
+        <listener class-name="com.selenium.demo.utils.retry.retryListener"/>
     </listeners>
 </suite>

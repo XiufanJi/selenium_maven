@@ -6,12 +6,12 @@
            skipped="1"
            time="0.000">
   <properties />
-            <testcase name="test_order" time="0.000" classname="com.selenium.demo.testcase.tradeOrder">
+            <testcase name="test_order" time="0.000" classname="com.selenium.demo.com.selenium.demo.testcase.tradeOrder">
                 <failure type="java.lang.NullPointerException"
                   message="(null)"
               >
-<![CDATA[java.lang.NullPointerException
-  com.selenium.demo.testcase.tradeOrder.test_order(tradeOrder.java:32)
+                    <![CDATA[java.lang.NullPointerException
+  com.selenium.demo.com.selenium.demo.testcase.tradeOrder.test_order(tradeOrder.java:32)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -40,11 +40,11 @@
   com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
   com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:110)
 ]]>
-      </failure>
+                </failure>
 
           </testcase>
   
-            <testcase name="test_order" time="0.0" classname="com.selenium.demo.testcase.tradeOrder">
+            <testcase name="test_order" time="0.0" classname="com.selenium.demo.com.selenium.demo.testcase.tradeOrder">
           <skipped />
     </testcase>
   
